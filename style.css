@@ -7,13 +7,14 @@
 }
 .main__container {
   background-color: #2f5a9a;
-  margin: 2rem 50rem 50rem 50rem;
+  margin: 2rem 50rem 50rem 40rem;
   text-align: center;
   /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   gap: 1rem;
   border-radius: 2rem;
+  width: 30%;
 }
 .main__container > h1 {
   font-size: 2.5rem;
@@ -75,4 +76,80 @@ input[type="submit"] {
   background-color: #2f5a9a;
   color: white;
   font-weight: 700;
+}
+
+/* responsiveness */
+@media only screen and (max-width: 1200px) {
+  .main__container {
+    text-align: center;
+    /* padding: 2rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 2rem;
+    width: 40%;
+  }
+  input[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem;
+    height: auto;
+    width: 6.5rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  input[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem;
+    height: auto;
+    width: 10rem;
+  }
+  .main__container {
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+
+    width: 100%;
+  }
+  .sign__number_log {
+    width: 98%;
+    margin: 0rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  input[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem;
+    height: auto;
+    width: 8rem;
+  }
+}
+@media only screen and (max-width: 449px) {
+  input[type="submit"] {
+    width: 6rem;
+  }
+}
+@media only screen and (max-width: 365px) {
+  input[type="submit"] {
+    width: 4rem;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 275px) {
+  input[type="submit"] {
+    width: 3rem;
+    font-size: 0.5rem;
+  }
+  .display {
+    padding: 0.5rem;
+    margin: 0rem;
+  }
+  .sign__number_log {
+    padding: 1rem;
+  }
+  .main__container > h1 {
+    font-size: 1.5rem;
+
+    letter-spacing: 0.4rem;
+    margin-top: 0.7rem;
+  }
 }
