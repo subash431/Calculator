@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main__container">
+      <h1>CASIO</h1>
+      <div class="display">
+        <input type="button" id="display" value="100.00" />
+      </div>
+      <hr />
+      <div class="sign__number_log">
+        <div class="upper__num_log">
+          <input type="submit" onclick="clearDisplay()" value="AC" />
+          <input type="submit" value="Square" />
+          <input type="submit" onclick="clearDisplay()" value="OFF" />
+
+          <input type="submit" onclick="onDiaplay()" value="ON" />
+        </div>
+        <div class="number__log">
+          <input type="submit" onclick="appendToDisplay('7')" value="7" />
+          <input type="submit" onclick="appendToDisplay('8')" value="8" />
+          <input type="submit" onclick="appendToDisplay('9')" value="9" />
+          <input
+            type="submit"
+            onclick="appendToDisplay('/')"
+            style="background-color: #2f5a9a; color: white"
+            value="/"
+          />
+        </div>
+        <div class="number__log">
+          <input type="submit" onclick="appendToDisplay('4')" value="4" />
+          <input type="submit" onclick="appendToDisplay('5')" value="5" />
+          <input type="submit" onclick="appendToDisplay('6')" value="6" />
+          <input
+            type="submit"
+            onclick="appendToDisplay('*')"
+            style="background-color: #2f5a9a; color: white"
+            value="*"
+          />
+        </div>
+        <div class="number__log">
+          <input type="submit" onclick="appendToDisplay('1')" value="1" />
+          <input type="submit" onclick="appendToDisplay('2')" value="2" />
+          <input type="submit" onclick="appendToDisplay('3')" value="3" />
+          <input
+            type="submit"
+            onclick="appendToDisplay('-')"
+            style="background-color: #2f5a9a; color: white"
+            value="-"
+          />
+        </div>
+        <div class="number__log">
+          <input type="submit" onclick="appendToDisplay('0')" value="0" />
+          <input type="submit" onclick="appendToDisplay('00')" value="00" />
+          <input
+            type="submit"
+            style="background-color: #0be42f; color: white"
+            onclick="calculate()"
+            value="="
+          />
+          <input
+            type="submit"
+            onclick="appendToDisplay('+')"
+            style="background-color: #ff6b00; color: white"
+            value="+"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      let display = document.getElementById("display");
+      function appendToDisplay(value) {
+        display.value += value;
+      }
+      function clearDisplay() {
+        display.value = "";
+      }
+
+      function calculate() {
+        const display = document.getElementById("display");
+        const expression = display.value;
+
+        try {
+          const result = Function(`'use strict'; return ${expression}`)();
+          display.value = result;
+        } catch (error) {
+          display.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
